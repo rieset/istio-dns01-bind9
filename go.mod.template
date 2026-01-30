@@ -1,20 +1,20 @@
-# Шаблон go.mod для Kubernetes оператора
+# go.mod template for Kubernetes operator
 #
-# Этот файл является шаблоном для go.mod. После инициализации оператора через
-# operator-sdk init, этот файл будет заменен на реальный go.mod.
+# This file is a template for go.mod. After initializing the operator via
+# operator-sdk init, this file will be replaced with the actual go.mod.
 #
-# Для использования:
-# 1. Выполните команду: cd operator && operator-sdk init --domain <domain> --repo <repo>
-# 2. После инициализации go.mod будет создан автоматически
+# Usage:
+# 1. Run the command: cd operator && operator-sdk init --domain <domain> --repo <repo>
+# 2. After initialization, go.mod will be created automatically
 #
-# Основные зависимости, которые обычно используются в операторах:
+# Main dependencies typically used in operators:
 
 module github.com/example/my-operator
 
 go 1.23
 
 require (
-    # Controller Runtime - основная библиотека для контроллеров
+    # Controller Runtime - main library for controllers
     sigs.k8s.io/controller-runtime v0.18.0
     
     # Kubernetes API
@@ -22,17 +22,17 @@ require (
     k8s.io/apimachinery v0.30.0
     k8s.io/client-go v0.30.0
     
-    # Логирование
+    # Logging
     go.uber.org/zap v1.27.0
     github.com/go-logr/logr v1.4.2
     
-    # Тестирование
+    # Testing
     github.com/onsi/ginkgo/v2 v2.22.0
     github.com/onsi/gomega v1.36.1
 )
 
-# Примечания:
-# - Версии зависимостей будут автоматически обновлены operator-sdk при инициализации
-# - После инициализации используйте `go mod tidy` для синхронизации зависимостей
-# - См. docs/modules.md для подробной информации о зависимостях
+# Notes:
+# - Dependency versions will be automatically updated by operator-sdk during initialization
+# - After initialization, use `go mod tidy` to synchronize dependencies
+# - See docs/modules.md for detailed information about dependencies
 

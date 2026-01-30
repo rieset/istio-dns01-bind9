@@ -1,0 +1,104 @@
+# Cursor Rules for istio-dns01-bind9 Operator
+
+## Project Context Management
+
+### CRITICAL: Project Context File (context.md)
+
+- **MANDATORY: Before starting any work on this project, ALWAYS read `context.md` to understand the current project state**
+- **MANDATORY: After making significant changes to the project, you MUST update `context.md` to reflect the new state**
+- **MANDATORY: When adding new features, dependencies, or changing project structure, update `context.md` accordingly**
+
+#### When to Update context.md
+
+Update `context.md` when:
+- Adding new API resources (CRDs)
+- Implementing new controllers
+- Adding new dependencies
+- Changing project structure
+- Updating configuration
+- Adding new documentation
+- Changing development workflow
+- Updating technical specifications
+
+#### How to Update context.md
+
+1. Read the current `context.md` file
+2. Identify sections that need updating
+3. Update relevant sections with new information
+4. Update the "Last Updated" date at the bottom
+5. Ensure all information is accurate and complete
+
+#### Sections to Keep Updated
+
+- Current State (Implemented/Not Implemented)
+- Project Structure (if structure changes)
+- Dependencies (when adding/removing dependencies)
+- Configuration (when changing config)
+- Next Steps (as project progresses)
+
+## Project Overview
+
+This is a Kubernetes operator for managing DNS01 challenge with Bind9 in Istio environment.
+
+## Technology Stack
+
+- **Language**: Go 1.24.0+
+- **Framework**: Operator SDK v1.42.0+
+- **Target**: Kubernetes Operator
+- **Kubernetes**: 1.19+
+
+## Code Style and Best Practices
+
+### Go Conventions
+
+- Follow standard Go formatting (`gofmt`)
+- Use `golangci-lint` for code quality
+- Prefer explicit error handling
+- Use context.Context for cancellation and timeouts
+- Follow Go naming conventions (exported/unexported)
+- Write comprehensive unit tests
+
+### Code Quality and Linting
+
+- **CRITICAL: Always run `golangci-lint` before submitting code changes**
+- **MANDATORY: After code generation (e.g., `make generate`, `make manifests`, `operator-sdk generate`), you MUST run linting**
+  - Code generation can introduce formatting issues or violations
+  - Always run `make lint` after any code generation command
+  - Fix all linting errors before proceeding with development
+- The project uses `golangci-lint` version `v2.1.0`
+- Configuration file: `.golangci.yml`
+- Run linting locally: `make lint` or `make lint-fix` (auto-fixes issues)
+
+### Code Organization
+
+- **CRITICAL: Files must be less than 500 lines. If a file exceeds this limit, refactoring is REQUIRED**
+- **MANDATORY: If a file exceeds 300 lines, you MUST create modules and extract functions into separate modules**
+  - Files with 300+ lines require immediate modularization
+  - Extract related functions into separate modules/packages
+  - Each module should have a single, clear responsibility
+  - Use interfaces to maintain clean boundaries between modules
+
+### Documentation Requirements
+
+- **MANDATORY: All documentation and commit messages MUST be written in English**
+  - All markdown files (README.md, docs/*.md) must be in English
+  - All Go doc comments must be in English
+  - All commit messages must be in English
+  - All code comments should be in English
+- All exported functions must have Go doc comments
+- Update `context.md` when project state changes significantly
+
+### Function Rating System
+
+Every function MUST have a rating comment. See `docs/function-rating.md` for details.
+
+## Development Workflow
+
+1. **ALWAYS read `context.md` before starting work**
+2. Check glossary before introducing new terms
+3. Update documentation when adding features
+4. **Update `context.md` after significant changes**
+5. Monitor file size - files exceeding 500 lines MUST be refactored
+6. Run `make lint` before and after making code changes
+7. Write all commit messages in English
+
